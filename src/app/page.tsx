@@ -1,15 +1,33 @@
 'use client';
 
 import { Button, Stack } from '@chakra-ui/react';
+import Link from 'next/link';
 import React from 'react';
 
 const page = () => {
+  const [loading, setLoading] = React.useState(false);
+
+  const handleLoading = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
+
   return (
     <Stack h="100vh" justifyContent="center" alignItems="center" spacing={6}>
-      <Button _hover={{ bg: '#E0A75E' }} minW="240px" size="lg">
-        Tresemme
-      </Button>
-      <Button _hover={{ bg: '#E0A75E' }} minW="240px" size="lg">
+      <Link href="../tresemme/">
+        <Button
+          _hover={{ bg: '#E0A75E', color: 'white' }}
+          isLoading={loading}
+          onClick={handleLoading}
+          minW="240px"
+          size="lg"
+        >
+          Tresemme
+        </Button>
+      </Link>
+      <Button _hover={{ bg: '#E0A75E', color: 'white' }} minW="240px" size="lg">
         Petromax
       </Button>
     </Stack>
