@@ -2,15 +2,18 @@
 
 import { Button, Stack } from '@chakra-ui/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 const page = () => {
   const [loading, setLoading] = React.useState(false);
 
+
   const handleLoading = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
+
     }, 2000);
   };
 
